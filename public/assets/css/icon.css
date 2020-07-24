@@ -1,0 +1,42 @@
+.icon-ac{
+	min-height: 50px;
+	min-width: 50px;
+	margin:5px;
+	background-size: 100%;
+	background-image: url('../icon/icons8_air_conditioner_480px_2.png')
+}
+.icon-bed{
+	min-height: 50px;
+	min-width: 50px;
+	margin:5px;
+	background-size: 100%;
+	background-image: url('../icon/icons8_bed_480px.png')
+}
+.icon-dapur{
+	min-height: 50px;
+	min-width: 50px;
+	margin:5px;
+	background-size: 100%;
+	background-image: url('../icon/icons8_kitchen_480px.png')
+}
+.icon-km{
+	min-height: 50px;
+	min-width: 50px;
+	margin:5px;
+	background-size: 100%;
+	background-image: url('../icon/icons8_shower_and_tub_filled_500px.png')
+}
+.icon-tv{
+	min-height: 50px;
+	min-width: 50px;
+	margin:5px;
+	background-size: 100%;
+	background-image: url('../icon/icons8_tv_filled_500px.png')
+}
+.icon-wifi{
+	min-height: 50px;
+	min-width: 50px;
+	margin:5px;
+	background-size: 100%;
+	background-image: url('../icon/icons8_wifi_480px.png')
+}

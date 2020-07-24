@@ -1,0 +1,353 @@
+
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.deskripsi{
+    color: #388e3c;
+}
+.galeri{
+ padding: 20px !important;
+}
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+.hovereffect  p{
+     opacity: 0;
+   color: #FFF;
+  filter: alpha(opacity=0);
+   -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.hovereffect:hover p{
+  opacity: 1;
+   color: #FFF;
+  filter: alpha(opacity=100);
+   filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.hovereffect .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+ 
+  top: 0;
+  left: 0;
+}
+.hovereffect .overlay:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.hovereffect .img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+
+.hovereffect:hover .img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /><feGaussianBlur stdDeviation="3" /></filter></svg>#filter');
+  filter:blur(4px) grayscale(0.7) ;
+  -webkit-filter:blur(4px) grayscale(0.8) ;
+  transform: scale(1.6);
+ 
+}
+
+.hovereffect h2 {
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  font-size: 17px;
+  padding: 10px;
+  background: rgba(27, 94, 32, 1);
+}
+
+.hovereffect a.info {
+  display: inline-block;
+  text-decoration: none;
+  padding: 7px 14px;
+  border: 1px solid #fff;
+  margin: 50px 0 0 0;
+  background-color: transparent;
+}
+
+.hovereffect a.info:hover {
+  box-shadow: 0 0 5px #fff;
+}
+
+.hovereffect a.info, .hovereffect h2 {
+  -webkit-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.hovereffect:hover a.info, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.category-img { width: 100%; height: 100%; }
+.navbar {
+    transition: all 0.2s;
+}
+h3{
+    color: #005662;
+    font-size: 20px;
+    margin-bottom: 2 !important;
+}
+.center {
+ display: grid;
+ align-items: center;
+  justify-content: center;
+}
+.align-items-center {
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+.lesspadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+.navbar .nav-link {
+    color: #fff;
+}
+.square {
+    float:left;
+    position: relative;
+    width: 100%;
+    height: 500px;
+    padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
+    /*margin:1.66%;*/
+    overflow:hidden;
+}
+
+.content {
+    position:absolute;
+    height:80%; /* = 100% - 2*10% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 10% 5%;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+
+/* Change navbar styling on scroll */
+.navbar.active {
+    background: #00695c;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.active .nav-link {
+    color: #FFF;
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.navbar.active .navbar-brand {
+    color: #FFF;
+}
+
+
+/* Change navbar styling on small viewports */
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #fff;
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #555;
+    }
+}
+
+
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+.text-small {
+    font-size: 0.9rem !important;
+}
+
+
+/*body {
+    min-height: 110vh;
+    
+}*/
+
+/*FOOTER*/
+/*footer{
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}*/
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+.nav-list li a:hover {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.socmed-link{
+    color: #FFF;
+}
+.socmed-link:hover{
+    color: #bdbdbd;
+}
+.socmed-link:focus{
+    color: #bdbdbd;
+}
+.socmed-link:active{
+    color: #bdbdbd;
+}
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+   
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+   
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
+.jumbotron{
+    border-radius: 0rem !important;
+}
+.dropdown-large {
+  position: static !important;
+}
+.dropdown-menu-large {
+  margin-left: 16px;
+  margin-right: 16px;
+  padding: 20px 0px;
+}
+.dropdown-menu-large > li > ul {
+  padding: 0;
+  margin: 0;
+}
+.dropdown-menu-large > li > ul > li {
+  list-style: none;
+}
+.dropdown-menu-large > li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: normal;
+}
+.dropdown-menu-large > li ul > li > a:hover,
+.dropdown-menu-large > li ul > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.dropdown-menu-large .disabled > a,
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  color: #999999;
+}
+.dropdown-menu-large .disabled > a:hover,
+.dropdown-menu-large .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.dropdown-menu-large .dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .dropdown-menu-large {
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .dropdown-menu-large > li {
+    margin-bottom: 30px;
+  }
+  .dropdown-menu-large > li:last-child {
+    margin-bottom: 0;
+  }
+  .dropdown-menu-large .dropdown-header {
+    padding: 3px 15px !important;
+  }
+}
