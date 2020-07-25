@@ -27,6 +27,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->level == 4)
+                                        <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                          
+                                           <i class="fas fa-dashboard"></i> Dashboard
+                                        </a>
+                                        @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

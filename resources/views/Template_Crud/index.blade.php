@@ -14,6 +14,7 @@
 </div>
   <table class="table table-striped" id="template">
     <thead>
+      <th>Image</th>
       <th>SKU</th>
       <th>Nama Template</th>
       <th>Kategori</th>
@@ -25,6 +26,7 @@
     <tbody>
       @foreach($template as $tmp)
       <tr>
+        <td><img width="100px" src="{{route('image',['url' => $tmp->imagesSingle->url])}}"></td>
         <td>{{$tmp->sku}}</td>
         <td>{{$tmp->nama}}</td>
         <td>{{$tmp->category_id}}</td>

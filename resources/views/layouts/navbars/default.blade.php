@@ -25,7 +25,12 @@
                                 <a id="navbarDropdown" class="nav-link text-uppercase font-weight-bold dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
+                                 @if(Auth::user()->level == 4)
+                                      <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                        
+                                        <i class="fas fa-dashboard"></i> Dashboard
+                                      </a>
+                                      @endif     
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

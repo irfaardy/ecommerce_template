@@ -14,6 +14,7 @@
 Route::get('/', "LandingController@index")->name('LandingPage');
 
 Auth::routes();
+Route::get('/product/image/{url}','ImageController@ShowIMG')->name('image');
 Route::group(['middleware' => ['auth']], function () {
 	Route::prefix('backoffice')->group(function() { 
 		Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
@@ -23,6 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
 			Route::get('/account/profile', 'UserSettingsController@profile')->name('user_profile');
 
 			Route::prefix('template')->group(function() { 
+				Route::prefix('theme')->group(function() { 
+					Route::get('/image/delete', 'ImageController@delete')->name('template.image.delete');
+				});
 				Route::prefix('theme')->group(function() { 
 					Route::get('/', 'Admin\CategoryController@index')->name('template.theme');
 					Route::get('/create', 'Admin\CategoryController@create')->name('template.theme.create');
@@ -41,8 +45,9 @@ Route::group(['middleware' => ['auth']], function () {
 				});
 				Route::get('/', 'Admin\TemplateController@index')->name('template');
 				Route::get('/create', 'Admin\TemplateController@create')->name('template.create');
-				Route::get('/{id}/edit', 'Admin\CategoryController@edit')->name('template.edit');
-					Route::post('/update', 'Admin\CategoryController@update')->name('template.update');
+				Route::post('/store', 'Admin\TemplateController@store')->name('template.store');
+				Route::get('/{id}/edit', 'Admin\TemplateController@edit')->name('template.edit');
+					Route::post('/update', 'Admin\TemplateController@update')->name('template.update');
 					Route::post('/{id}/delete', 'Admin\CategoryController@delete')->name('template.delete');
 			});
 	});

@@ -7,6 +7,42 @@
 <script src="{{asset('assets/dashboard/js/adminlte.min.js')}}"></script>
 <script src="{{asset('assets/pwdstr/jquery.passtrength.js')}}"></script>
 <script src="{{asset('assets/lazy-load/jquery.lazyload-any.js')}}"></script>
+<script type="text/javascript">
+ $(document).ready(function($) {
+	$("[delete-img]").click(function() {
+		 if(!confirm("Apakah anda ingin menghapus gambar ini?")){
+		 		return false;
+    		}
+		var hide=$(this).attr('target-hide');
+	$.ajax({
+				url: $(this).attr('route')+'?img='+$(this).attr('data-img')+'&templid='+$(this).attr('data-produk'),
+				success: function(response){
+					$(hide).fadeOut();
+				},
+			}).done(function(response) {
+				$(hide).fadeOut();
+			})
+
+	});
+
+	$("[delete-file]").click(function() {
+		 if(!confirm("Apakah anda ingin menghapus File ini?")){
+		 		return false;
+    		}
+		var hide=$(this).attr('target-hide');
+	$.ajax({
+				url: $(this).attr('route')+'?img='+$(this).attr('data-img')+'&templid='+$(this).attr('data-produk'),
+				success: function(response){
+					$(hide).fadeOut();
+				},
+			}).done(function(response) {
+				$(hide).fadeOut();
+			})
+
+	});
+	
+});
+</script>
  <script type="text/javascript">
  	 
  	 $(document).ready(function($) {
