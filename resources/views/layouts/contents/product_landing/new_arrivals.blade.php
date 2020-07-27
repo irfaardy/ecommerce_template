@@ -11,7 +11,7 @@
                            <?php $calc=$t->price - ($t->price*($t->discount/100)); ?>
                              <p><span style="text-decoration: line-through;"> Rp {{number_format($t->price)}}</span> Rp {{number_format($calc < 0?0:$calc)}}</p>
                            @endif
-                           <a class="info" href="#">Lihat Selengkapnya</a>
+                           <a class="info" href="{{route('product.details',['id' => $t->id])}}">Lihat Selengkapnya</a>
                         </div>
                     </div>
                 </div>

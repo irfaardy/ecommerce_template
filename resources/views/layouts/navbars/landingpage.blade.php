@@ -1,7 +1,7 @@
 <header class="header">
         <nav class="navbar_landing navbar navbar-expand-lg fixed-top py-2">
             <div class="container">
-                <a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="img/logo_wt.png" height="50px" class="brand"></a>
+                <a href="#" class="navbar-brand text-uppercase font-weight-bold"><img src="{{asset('img/logo_wt.png')}}" height="50px" class="brand"></a>
                 <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
 
                 <div class="collapse navbar-collapse in" id="navbarSupportedContent">
@@ -50,24 +50,4 @@
             </div>
         </nav>
     </header>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      
-              <ul class="nav justify-content-center">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-  </div>
-</div>
-</div>
+    @include('layouts/navbars/cat')

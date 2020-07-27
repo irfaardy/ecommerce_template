@@ -14,6 +14,10 @@
 Route::get('/', "LandingController@index")->name('LandingPage');
 
 Auth::routes();
+Route::prefix('product')->group(function() { 
+		Route::get('/cat/{cat}', 'CategoryController@index')->name('product.cat');
+		Route::get('/details/{id}', 'ProductController@show')->name('product.details');
+	});
 Route::get('/product/image/{url}','ImageController@ShowIMG')->name('image');
 Route::group(['middleware' => ['auth']], function () {
 	Route::prefix('backoffice')->group(function() { 

@@ -23,8 +23,17 @@
     @else
           <!-- Navbar-->
         @include('layouts.navbars.default')
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+            @yield('sub_title')
         @yield('content')
+    
+                </div>
+            </div>
+        </div>
     @endif
+    </body>
     <footer class="section footer-classic context-dark bg-image" style="margin-top:24px;background: #00251a;">
         <div class="container-fluid" style="margin-top:24px;">
             <div class="row row-30">
@@ -72,6 +81,6 @@
             </div>
     </footer>
     <!-- End Footer -->
-</body>
+
 @include('layouts.assets.js')
 </html>
