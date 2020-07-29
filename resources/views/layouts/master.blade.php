@@ -26,7 +26,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-            @yield('sub_title')
+            <h2>@yield('sub_title')</h2>
         @yield('content')
     
                 </div>

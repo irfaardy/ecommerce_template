@@ -2,6 +2,8 @@
 namespace App\Helpers;
 use App\Models\CategoryTheme;
 use App\Models\Platform;
+use App\Models\Cart;
+use Auth;
 
 class TemplateHelper {
 	public static function kategori($id = null){
@@ -18,5 +20,10 @@ class TemplateHelper {
 		$plt = Platform::all();
 
 		return $plt;
+	}
+	public static function cart(){
+		$count = Cart::where(["user_id" => Auth::user()->id])->count();
+
+		return $count;
 	}
 }

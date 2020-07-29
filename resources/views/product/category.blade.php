@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('sub_title',"<h2>Kategori</h2>")
+@section('sub_title',"Kategori")
 @section('content')
 
 <div class="row" >

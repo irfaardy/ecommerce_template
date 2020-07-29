@@ -20,6 +20,9 @@ Route::prefix('product')->group(function() {
 	});
 Route::get('/product/image/{url}','ImageController@ShowIMG')->name('image');
 Route::group(['middleware' => ['auth']], function () {
+	Route::prefix('shoppingcart')->group(function(){
+		Route::get('/push/{id}.tpl','CartController@cart_push')->name('shoppingcart.add');
+	});
 	Route::prefix('backoffice')->group(function() { 
 		Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 		
