@@ -20,8 +20,10 @@ class TemplateApp extends Model
     public function templateFile()
     {
         return $this->hasMany('App\Models\Templates','template_id');
-    }public function category()
-    {
-        return $this->hasOne('App\Models\CategoryTheme','template_id');
     }
+    public function category()
+    {
+        return $this->hasOne('App\Models\CategoryTheme','id','theme_id');
+    }
+    
 }

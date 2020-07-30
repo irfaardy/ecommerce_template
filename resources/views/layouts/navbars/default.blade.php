@@ -10,7 +10,7 @@
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">DEALS OF THE DAY</a></li>
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">SERVICES</a></li>
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">SEARCH</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-shopping-cart"></i> <span class='badge badge-warning' id='CartCount'> {{TemplateHelper::cart()}} </span></a></li>
+                        <li class="nav-item"><a href="{{route('shoppingcart')}}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-shopping-cart"></i>@auth <span class='badge badge-warning' id='CartCount'>  {{TemplateHelper::cart()}} </span>@endauth</a></li>
                         {{-- <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact us</a></li> --}}
                        @guest
                             <li class="nav-item">

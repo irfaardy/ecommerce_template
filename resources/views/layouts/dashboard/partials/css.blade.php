@@ -3,7 +3,12 @@
 <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <!-- IonIcons -->
-
+  <script src="{{asset('js/jquery.unveil.js')}}"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $("img").unveil(200);
+});
+</script>
   <link rel="stylesheet" href="{{asset('assets/ionicons/css/ionicons.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dashboard/css/adminlte.min.css')}}">

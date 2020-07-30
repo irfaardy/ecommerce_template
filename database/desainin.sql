@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2020 at 08:12 PM
+-- Generation Time: Jul 30, 2020 at 08:47 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -162,6 +162,7 @@ CREATE TABLE `tb_redeem_code` (
 CREATE TABLE `tb_shopping_cart` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `template_id` bigint(20) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `updated_by` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -172,8 +173,9 @@ CREATE TABLE `tb_shopping_cart` (
 -- Dumping data for table `tb_shopping_cart`
 --
 
-INSERT INTO `tb_shopping_cart` (`id`, `template_id`, `deleted_at`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 6, NULL, NULL, '2020-07-29 11:12:42', '2020-07-29 11:12:42');
+INSERT INTO `tb_shopping_cart` (`id`, `template_id`, `user_id`, `deleted_at`, `updated_by`, `created_at`, `updated_at`) VALUES
+(27, 6, 1, NULL, NULL, '2020-07-29 23:43:15', '2020-07-29 23:43:15'),
+(28, 5, 1, NULL, NULL, '2020-07-29 23:43:25', '2020-07-29 23:43:25');
 
 -- --------------------------------------------------------
 
@@ -199,7 +201,8 @@ CREATE TABLE `tb_templates` (
 
 INSERT INTO `tb_templates` (`id`, `template_id`, `link_download`, `real_path`, `size`, `deleted_at`, `updated_by`, `created_at`, `updated_at`) VALUES
 (16, 5, 'FMOS5bJYlZiNdXaYRWNgqCJHxzkfPbRgAs2DitGw63Vv2Db3VtuMKtIPYq9Xz6MFVetALfuLudeR28tn', 'TEMPLATE_premium_material_dashboard_20200726.zip', 5173.00, NULL, NULL, '2020-07-26 06:48:46', '2020-07-26 06:48:46'),
-(17, 6, 'c19RCzyFZehMaw9bjgjU8NnP0yNHzkfhKfP0hX6RQjaEGFyXXSzrNVKCvb2bOXckmKAAu0SZ2wnHV2bX', 'TEMPLATE_minimalist_.dotnet_app_20200726.zip', 933006.00, NULL, NULL, '2020-07-26 06:50:55', '2020-07-26 06:50:55');
+(17, 6, 'c19RCzyFZehMaw9bjgjU8NnP0yNHzkfhKfP0hX6RQjaEGFyXXSzrNVKCvb2bOXckmKAAu0SZ2wnHV2bX', 'TEMPLATE_minimalist_.dotnet_app_20200726.zip', 933006.00, NULL, NULL, '2020-07-26 06:50:55', '2020-07-26 06:50:55'),
+(18, 7, 'ABsv1H2W1TvrbZxXOUjpNrKWu66PsxFC0oVR8XnFDuhl0qN53W78IWyETQhCOyE0ESfeFXKTA8ucM1lM', 'TEMPLATE_mobile_minimal_20200729.zip', 341.00, NULL, NULL, '2020-07-29 11:39:23', '2020-07-29 11:39:23');
 
 -- --------------------------------------------------------
 
@@ -230,7 +233,8 @@ CREATE TABLE `tb_template_app` (
 
 INSERT INTO `tb_template_app` (`id`, `sku`, `nama`, `category_id`, `theme_id`, `deskripsi`, `link_demo`, `price`, `discount`, `terjual`, `deleted_at`, `updated_by`, `created_at`, `updated_at`) VALUES
 (5, 'WB11', 'Premium Material Dashboard', 3, 3, '<p>dadasda</p>', 'http://localhost/PROJEK%20Baru/ecommerce/public/', 170000.00, 35.00, NULL, NULL, '1', '2020-07-26 06:48:46', '2020-07-26 06:48:46'),
-(6, 'DSG23132', 'Minimalist .DotNet App', 1, 3, '<p>DESKTOP</p>', 'http://localhost/PROJEK%20Baru/ecommerce/public/backoffice/template/create', 70000.00, 0.00, NULL, NULL, '1', '2020-07-26 06:50:55', '2020-07-26 06:50:55');
+(6, 'DSG23132', 'Minimalist .DotNet App', 1, 3, '<p>DESKTOP</p>', 'http://localhost/PROJEK%20Baru/ecommerce/public/backoffice/template/create', 70000.00, 0.00, NULL, NULL, '1', '2020-07-26 06:50:55', '2020-07-26 06:50:55'),
+(7, 'SK9201931022s', 'Mobile Minimal', 2, 3, '<h1>Hasil Telusur</h1>\r\n\r\n<h2>Hasil web</h2>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/v4.7.0/icon/shopping-cart\">fa-shopping-cart: Font Awesome Icons</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/v4.7.0/icon/shopping-cart\"><cite>fontawesome.com &rsaquo; icon &rsaquo; sh...</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/v4.7.0/icon/shopping-cart&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>Upgrade to version <em>5</em> and get twice the icons. Get the Latest ... fa-shopping-<em>cart</em> &middot; Unicode: f07a &middot; Created: v1.0 &middot; Categories: Web Application Icons. After you get&nbsp;...</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/privacy\">Font Awesome 6 Pre-order</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/privacy\"><cite>fontawesome.com &rsaquo; privacy</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/privacy&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>Get all of the pro icons + categories we&#39;ve released in Version <em>5</em>! 4 Icon Styles. Use our solid, regular, light, and duotone styles. And there&#39;s&nbsp;...</p>\r\n\r\n<p>&lrm;<a href=\"https://fontawesome.com/privacy#more-icons-styles\">More Styles</a> &middot; &lrm;<a href=\"https://fontawesome.com/privacy#more-services\">More Services</a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/v4.7.0/icon/cart-plus\">fa-cart-plus: Font Awesome Icons</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/v4.7.0/icon/cart-plus\"><cite>fontawesome.com &rsaquo; icon &rsaquo; car...</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/v4.7.0/icon/cart-plus&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>Upgrade to version <em>5</em> and get twice the icons. Get the Latest ... fa-<em>cart</em>-plus &middot; Unicode: f217 &middot; Created: v4.3 &middot; Categories: Web Application Icons. After you get up&nbsp;...</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/v4.7.0/icon/cart-arrow-down\">fa-cart-arrow-down: Font Awesome Icons</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/v4.7.0/icon/cart-arrow-down\"><cite>fontawesome.com &rsaquo; icon &rsaquo; car...</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/v4.7.0/icon/cart-arrow-down&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>Upgrade to version <em>5</em> and get twice the icons. Get the Latest ... fa-<em>cart</em>-arrow-down &middot; Unicode: f218 &middot; Created: v4.3 &middot; Categories: Web Application Icons. After you&nbsp;...</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/v4.7.0/icon/shopping-basket\">fa-shopping-basket: Font Awesome Icons</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/v4.7.0/icon/shopping-basket\"><cite>fontawesome.com &rsaquo; icon &rsaquo; sh...</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/v4.7.0/icon/shopping-basket&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>fa-shopping-basket &middot; Unicode: f291 &middot; Created: v4.<em>5</em> &middot; Categories: Web Application Icons. After you get up and running, you can place <em>Font Awesome</em> icons just&nbsp;...</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/v4.7.0/examples/\">Font Awesome Examples</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/v4.7.0/examples/\"><cite>fontawesome.com &rsaquo; examples</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/v4.7.0/examples/&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>Upgrade to version <em>5</em> and get twice the icons. ... aria-label=&quot;View 3 items in your shopping <em>cart</em>&quot;&gt; &lt;i class=&quot;fa fa-shopping-<em>cart</em>&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt; &lt;/a&gt;.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h3><a href=\"https://fontawesome.com/v4.7.0/icon/shopping-bag\">fa-shopping-bag: Font Awesome Icons</a></h3>\r\n\r\n<p><a href=\"https://fontawesome.com/v4.7.0/icon/shopping-bag\"><cite>fontawesome.com &rsaquo; icon &rsaquo; sh...</cite></a></p>\r\n\r\n<p><a href=\"https://translate.google.com/translate?hl=id&amp;sl=en&amp;u=https://fontawesome.com/v4.7.0/icon/shopping-bag&amp;prev=search&amp;pto=aue\">Terjemahkan halaman ini</a></p>\r\n\r\n<p>fa-shopping-bag &middot; Unicode: f290 &middot; Created: v4.<em>5</em> &middot; Categories: Web Application Icons. After you get up and running, you can place <em>Font Awesome</em> icons just about&nbsp;...</p>', 'http://localhost/PROJEK%20Baru/ecommerce/public/', 170000.00, 23.00, NULL, NULL, '1', '2020-07-29 11:39:23', '2020-07-29 11:39:23');
 
 -- --------------------------------------------------------
 
@@ -296,6 +300,7 @@ CREATE TABLE `tb_transaksi` (
   `id_user` bigint(20) NOT NULL,
   `total_harga` double(12,2) NOT NULL,
   `metode_pembayaran` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bank_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_verify` tinyint(1) NOT NULL,
   `is_canceled` tinyint(1) NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -328,7 +333,11 @@ CREATE TABLE `template_images` (
 INSERT INTO `template_images` (`id`, `template_id`, `realpath`, `url`, `mime`, `size`, `created_at`, `updated_at`) VALUES
 (13, 5, '20200726_LG47H4oh_WB11.jpg', '1595771326_LG47H4oh_WB11.jpg', 'image/png', 232723, '2020-07-26 06:48:47', '2020-07-26 06:48:47'),
 (14, 5, '20200726_X8DUo2gv_WB11.jpg', '1595771327_X8DUo2gv_WB11.jpg', 'image/png', 198266, '2020-07-26 06:48:48', '2020-07-26 06:48:48'),
-(15, 6, '20200726_AaQPgftm_DSG23132.jpg', '1595771455_AaQPgftm_DSG23132.jpg', 'image/png', 244711, '2020-07-26 06:50:56', '2020-07-26 06:50:56');
+(15, 6, '20200726_AaQPgftm_DSG23132.jpg', '1595771455_AaQPgftm_DSG23132.jpg', 'image/png', 244711, '2020-07-26 06:50:56', '2020-07-26 06:50:56'),
+(16, 7, '20200729_QrTrUa18_SK9201931022s.jpg', '1596047963_QrTrUa18_SK9201931022s.jpg', 'image/jpeg', 74486, '2020-07-29 11:39:24', '2020-07-29 11:39:24'),
+(17, 7, '20200729_XLiKFiPO_SK9201931022s.jpg', '1596047964_XLiKFiPO_SK9201931022s.jpg', 'image/png', 6717, '2020-07-29 11:39:24', '2020-07-29 11:39:24'),
+(18, 7, '20200729_FamgC2y7_SK9201931022s.jpg', '1596047964_FamgC2y7_SK9201931022s.jpg', 'image/png', 21402, '2020-07-29 11:39:24', '2020-07-29 11:39:24'),
+(19, 7, '20200729_kEzuxDct_SK9201931022s.jpg', '1596047964_kEzuxDct_SK9201931022s.jpg', 'image/png', 95577, '2020-07-29 11:39:25', '2020-07-29 11:39:25');
 
 -- --------------------------------------------------------
 
@@ -497,19 +506,19 @@ ALTER TABLE `tb_redeem_code`
 -- AUTO_INCREMENT for table `tb_shopping_cart`
 --
 ALTER TABLE `tb_shopping_cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `tb_templates`
 --
 ALTER TABLE `tb_templates`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_template_app`
 --
 ALTER TABLE `tb_template_app`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_template_platforms`
@@ -533,7 +542,7 @@ ALTER TABLE `tb_transaksi`
 -- AUTO_INCREMENT for table `template_images`
 --
 ALTER TABLE `template_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `users`

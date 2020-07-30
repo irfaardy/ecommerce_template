@@ -25,13 +25,13 @@ img_change();
 		<div class="card">
 			<div class="card-body">
 				<div class="row">
-					<div class="col-md-12" style="align-items: center; display:flex;min-height:500px; max-height: 500px;">
-						<img style="max-height: 500px;" change-target="" class="rounded" src="{{route('image',['url' => $tmp->imagesSingle->url])}}" width="700px">
+					<div class="col-md-12" align="center" style="align-items: center; display:flex;min-height:500px; max-height: 500px;">
+						<img style="max-height: 500px;" change-target="" class="rounded" data-src="{{route('image',['url' => $tmp->imagesSingle->url])}}" src="{{asset('img/spinner.gif')}}" style="max-width: 500px;">
 					</div>
 					<div class="col-md-12" style="overflow-y: auto;  max-height:180px; " align="center">
 						<!-- <div style="overflow-x: scroll; max-width: 200px;"> -->
 						 @foreach($tmp->images as $img)						
-						<img style="cursor: pointer;" img-change="" class="rounded" img-original="{{route('image',['url' => $img->url])}}" src="{{route('image',['url' => $img->url])}}" width="100px">
+						<img style="cursor: pointer;" img-change="" class="rounded" img-original="{{route('image',['url' => $img->url])}}" data-src="{{route('image',['url' => $img->url])}}" src="" width="100px">
 						@endforeach
 						
 						

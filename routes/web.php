@@ -22,6 +22,12 @@ Route::get('/product/image/{url}','ImageController@ShowIMG')->name('image');
 Route::group(['middleware' => ['auth']], function () {
 	Route::prefix('shoppingcart')->group(function(){
 		Route::get('/push/{id}.tpl','CartController@cart_push')->name('shoppingcart.add');
+		Route::get('/drop/{id}.tpl','CartController@cart_delete')->name('shoppingcart.delete');
+		Route::get('/','CartController@index')->name('shoppingcart');
+	});
+	Route::prefix('checkout')->group(function(){
+		Route::get('/','CheckoutController@index')->name('checkout.review');
+		Route::get('/success/transaction/{id}','CheckoutController@trans')->name('checkout.success');
 	});
 	Route::prefix('backoffice')->group(function() { 
 		Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
