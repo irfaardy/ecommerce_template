@@ -2,7 +2,7 @@
 
 @section('content')
 <h3>Review Checkout</h3>
-<form action="" method="POST">
+<form action="{{route('checkout.progress')}}" method="POST">
 @csrf
 	<div class="row">
 		<div class="col-md-6">
@@ -33,8 +33,9 @@
 				<div class="col-md-6">
 					<label for="bank">Pilih Bank</label>
 					<select class="form-control" name="bank">
-						<option>BRI</option>
-						<option>BCA</option>
+						@foreach(TemplateHelper::bank() as $bnk)
+							<option value="{{$bnk->id}}">{{$bnk->nama_bank}}</option>
+						@endforeach
 					</select>
 				</div>
 			</div>
