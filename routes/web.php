@@ -17,6 +17,7 @@ Auth::routes();
 Route::prefix('product')->group(function() { 
 		Route::get('/cat/{cat}', 'CategoryController@index')->name('product.cat');
 		Route::get('/details/{id}', 'ProductController@show')->name('product.details');
+		
 	});
 Route::get('/product/image/{url}','ImageController@ShowIMG')->name('image');
 Route::group(['middleware' => ['auth']], function () {
@@ -25,9 +26,37 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('/drop/{id}.tpl','CartController@cart_delete')->name('shoppingcart.delete');
 		Route::get('/','CartController@index')->name('shoppingcart');
 	});
+	Route::prefix('konfirmasi')->group(function(){
+		Route::post('/store','TransactionController@upload_bukti')->name('konfirmasi.save');
+	});
+	Route::prefix('status')->group(function(){
+		// Route::get('dibeli', 'ProductController@show')->name('produk.dibeli');
+		Route::get('konfirmasi', 'TransactionController@konfirmasi')->name('status.konfirmasi');
+		Route::get('diterima', 'TransactionController@diterima')->name('status.diterima');
+		Route::get('gagal', 'TransactionController@gagal')->name('status.gagal');
+	});
+	Route::prefix('invoice')->group(function(){
+		// Route::get('dibeli', 'ProductController@show')->name('produk.dibeli');
+		Route::get('show/{id}.inv', 'TransactionController@invoice')->name('invoice.dibeli');
+	});
+
+	Route::prefix('template')->group(function(){
+		Route::prefix('received')->group(function(){
+			// Route::get('dibeli', 'ProductController@show')->name('produk.dibeli');
+			Route::get('list/{id}/{uuid}.fltmp', 'TransactionController@list')->name('template.received');
+		});
+		Route::prefix('download')->group(function(){
+			// Route::get('dibeli', 'ProductController@show')->name('produk.dibeli');
+			Route::get('fileid/{id}.fltmp', 'DownloadController@template')->name('download.template');
+		});
+	});
+
+	
 	Route::prefix('checkout')->group(function(){
 		Route::get('/','CheckoutController@index')->name('checkout.review');
-		Route::get('/success/transaction/{id}','CheckoutController@trans')->name('checkout.success');
+		Route::get('/success/transaction/{id}','CheckoutController@success')->name('checkout.success');
+		Route::post('/progress/transaction','CheckoutController@progress')->name('checkout.progress');
+		Route::get('/testuuid/',"CheckoutController@test");
 	});
 	Route::prefix('backoffice')->group(function() { 
 		Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
