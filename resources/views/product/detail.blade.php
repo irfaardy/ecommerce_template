@@ -59,7 +59,12 @@ img_change();
 		
 		<tr>
 			<td>Harga</td>
-			<td>Rp.{{number_format($tmp->price)}}</td>
+			<td>@if(empty($tmp->discount))
+                           <p>Rp {{number_format($tmp->price)}}</p>
+                           @else
+                           <?php $calc=$tmp->price - ($tmp->price*($tmp->discount/100)); ?>
+                             <p><span style="text-decoration: line-through;"> Rp {{number_format($tmp->price)}}</span> Rp {{number_format($calc < 0?0:$calc)}}
+                           @endif  @if(!empty($tmp->discount))<span class="badge badge-warning">{{number_format($tmp->discount)}}% off</span>@endif</p></td>
 		</tr>
 		<tr>
 			<td colspan="2">
