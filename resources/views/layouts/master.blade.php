@@ -27,6 +27,7 @@
             <div class="card">
                 <div class="card-body">
             <h2>@yield('sub_title')</h2>
+            @include('layouts.alerts')
         @yield('content')
     
                 </div>
