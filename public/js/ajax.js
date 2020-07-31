@@ -18,6 +18,7 @@ $(document).ready(function($) {
 					// 	type: 'success',
 					// 	message: response.message
 					// });
+					 $('#CartCount').addClass('animate__rubberBand');
 					$('#CartCount').html(response.count);
 				},
 			}).done(function(response) {
