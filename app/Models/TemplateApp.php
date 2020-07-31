@@ -19,7 +19,7 @@ class TemplateApp extends Model
     }
     public function templateFile()
     {
-        return $this->hasMany('App\Models\Templates','template_id');
+        return $this->hasOne('App\Models\Templates','template_id');
     }
     public function category()
     {
