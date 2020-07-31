@@ -4,13 +4,11 @@
 	<div class="col-md-3">
 		<div class="card">
 			<div class="card-header">
-				<h3>Status Transaksi</h3>
+				<h3><b>Status Transaksi</b></h3>
 			</div>
 				<div class="card-body">
 					 <div class="list-group">
-  <a  href="{{route('status.konfirmasi')}}" class="list-group-item">Menunggu Konfirmasi</a>
-  <a href="{{route('status.diterima')}}" class="list-group-item">Pesanan Diterima</a>
-  <a href="{{route('status.gagal')}}" class="list-group-item">Pesanan Gagal</a>
+ 	@include('status.partials.sidebar')
 </div> 
 		
 	</div>
@@ -18,8 +16,9 @@
 	</div>
 	<div class="col-md-9">
 		<div class="card">
-			<div class="card-header">{{$title}}</div>
+			<div class="card-header"><b>{{$title}}</b></div>
 				<div class="card-body">
+					<h3> Total item : <b>{{count($trans->details)}} item(s)</b></h3>
 					<table class="table ">
 						<thead>
 							<th>Product</th>
