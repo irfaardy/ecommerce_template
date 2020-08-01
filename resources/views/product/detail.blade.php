@@ -67,6 +67,10 @@ img_change();
                            @endif  @if(!empty($tmp->discount))<span class="badge badge-warning">{{number_format($tmp->discount)}}% off</span>@endif</p></td>
 		</tr>
 		<tr>
+			<td>Terjual</td>
+			<td>{{number_format($tmp->terjual)}}</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<a href="#" add-cart data-id="{{$tmp->id}}" route="{{route('shoppingcart.add',['id'=>$tmp->id])}}" class="btn btn-success btn-block"><i class="fas fa-spinner fa-spin" style="display: none;" id="spinner"></i> Beli</a>
 			</td>
