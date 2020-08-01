@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
 	});
 	Route::prefix('konfirmasi')->group(function(){
 		Route::post('/store','TransactionController@upload_bukti')->name('konfirmasi.save');
+		Route::post('/cancel','TransactionController@cancel')->name('konfirmasi.batal');
 	});
 	Route::prefix('status')->group(function(){
 		// Route::get('dibeli', 'ProductController@show')->name('produk.dibeli');
@@ -47,7 +48,7 @@ Route::group(['middleware' => ['auth']], function () {
 		});
 		Route::prefix('download')->group(function(){
 			// Route::get('dibeli', 'ProductController@show')->name('produk.dibeli');
-			Route::get('fileid/{id}.fltmp', 'DownloadController@template')->name('download.template');
+			Route::get('fileid/{transid}/{id}.fltmp', 'DownloadController@template')->name('download.template');
 		});
 	});
 
@@ -77,6 +78,13 @@ Route::group(['middleware' => ['auth']], function () {
 					Route::post('/update', 'Admin\CategoryController@update')->name('template.theme.update');
 					Route::post('/{id}/delete', 'Admin\CategoryController@delete')->name('template.theme.delete');
 				});
+				Route::prefix('transaction')->group(function() {
+					Route::get('/konfirmasi','Admin\TransaksiController@konfirmasi')->name('admin.konfirmasi.pembayaran');
+					Route::get('/konfirmasi/{id}','Admin\TransaksiController@show')->name('admin.konfirmasi.show');
+					Route::get('/diterima','Admin\TransaksiController@konfirmasi')->name('admin.produk.diterima');
+					Route::post('buktitransfer/verify','Admin\TransaksiController@verify')->name('admin.konfirmasi.aksi');
+					Route::get('/buktitransfer/image/{url}','ImageController@bukti')->name('admin.gambar.buktitf');
+				}); 
 				Route::prefix('platform')->group(function() { 
 					Route::get('/', 'Admin\PlatformController@index')->name('template.platform');
 					Route::get('/create', 'Admin\PlatformController@create')->name('template.platform.create');

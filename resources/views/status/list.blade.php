@@ -19,6 +19,7 @@
 			<div class="card-header"><b>{{$title}}</b></div>
 				<div class="card-body">
 					<h3> Total item : <b>{{count($trans->details)}} item(s)</b></h3>
+					<h3> Serial Number : <b><span id="redeem-code" ></span></b><a show-sn href="#" class="btn btn-primary btn-sm" sn-data="{{$trans->redeem->serial}}">Lihat SN</a></h3>
 					<table class="table ">
 						<thead>
 							<th>Product</th>
@@ -33,11 +34,12 @@
 								<td>
 
 									<a href="{{route('product.details',['id' => $t->template->id])}}" >{{$t->template->nama}}</a><br>
-									<small>Category: {{$t->template->category->nama}}</small>
+									<small>Category: {{$t->template->category->nama}}</small><br>
+									<small>File size: {{TemplateHelper::bytesUnit($t->template->templateFile->size)}}</small>
 								</td>
 								
 		                       <td>
-		                       		<a href="{{ route('download.template',['id' => $t->template->templateFile->link_download])}}" class="btn btn-success"><i class="fas fa-download"></i> Download Template</a>
+		                       		<a href="{{ route('download.template',['transid'=>$trans->id,'id' => $t->template->templateFile->link_download])}}" class="btn btn-success"><i class="fas fa-download"></i> Download Template</a>
 		                       </td>
 							</tr>
 							@endforeach

@@ -17,6 +17,16 @@
 				
 				</div>
 
+				@elseif($data->is_verify) 
+					<div class="card">
+					<div class="card-header" align="center"><h2>Transaksi sukses</h2></div>
+					<div class="card-body">
+						
+						
+						Sekarang anda dapat mendownload templatenya <a href="{{route('template.received',['id' => $data->id,'uuid' => $data->link])}}">disini</a>. </b>
+					</div>
+				
+				</div>
 				@elseif(time() >= $data->timeout ) 
 				<div class="card">
 					<div class="card-header" align="center"><h2>Transaksi telah kadaluarsa </h2></div>
@@ -49,6 +59,7 @@
 				</div>
 				<div class="card-footer">
 					<a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#konfirmasi-pembayaran">Konfirmasi Pembayaran</a>
+					<a href="#" class="btn btn-light btn-block" data-toggle="modal" data-target="#batalkan-pesanan">Batalkan Pesanan</a>
 				</div>
 			</div>
 			 @endif
@@ -129,6 +140,46 @@
         	</div>
         	<div class="col-md-6">
         		<button class="btn btn-primary btn-block">Kirim Konfirmasi</button>
+        	</div>
+        </div>
+    </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+
+<div class="modal fade" id="batalkan-pesanan" tabindex="-1" role="dialog" aria-labelledby="konfirmasi" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Batalkan pesanan?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form action="{{route('konfirmasi.batal')}}" enctype="multipart/form-data" method="POST">
+		@csrf
+      	<input type="hidden" name="id_transaksi" value="{{$data->id}}">
+        	<label>Alasan pembatalan</label>
+        <select name="alasan" class="form-control" required="">
+        	<option value="">-Pilih-</option>
+        	<option value="Ingin mengganti metode pembayaran.">Ingin mengganti metode pembayaran</option>
+        	<option value="Ingin mengganti produk yang dibeli">Ingin mengganti produk yang dibeli</option>
+        	<option value="Tidak tertarik dengan produk yang dibeli">Tidak tertarik dengan produk yang dibeli</option>
+        	<option value="Tidak jadi membeli">Tidak jadi membeli</option>
+        	<option value="Lainnya">Lainnya</option>
+        </select>
+        <hr>
+        <div class="row">
+        	<div class="col-md-6">
+        		<button class="btn btn-danger btn-block">Ya</button>
+        	</div>
+        	<div class="col-md-6">
+        		<button  type="button"  data-dismiss="modal" class="btn btn-light btn-block">Batalkan</button>
         	</div>
         </div>
     </form>

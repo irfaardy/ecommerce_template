@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\TemplateApp;
 use App\Models\Transaction;
 use App\Models\TransactionDetails;
+use App\Models\Redeem;
 use Auth;
 use Validator;
 use Str;
@@ -46,6 +47,10 @@ class CheckoutController extends Controller
                                           ->withInput($request->all());
             }
         $cart = Cart::where('user_id',Auth::user()->id)->get();
+        if(count($cart) ==0){
+        	return redirect()->route('shoppingcart')->with(['message_fail' => 'Tidak dapat melakukan checkout, karena keranjang belanja anda kosong.'])
+                                          ->withInput($request->all());
+        }
 		$calc =0;
 		foreach($cart as $s){
 			if(!empty($s->template->discount)){
@@ -58,7 +63,7 @@ class CheckoutController extends Controller
 			}
 			$calc += $total;
 		}
-		
+			
             $timeout = time()+(((3600)*24));//1 hari
          	$generate_inv = "INV/".date("Y")."/".date("m")."/".strtoupper(Str::random(4));
          	$params = [	'invoice' => $generate_inv,

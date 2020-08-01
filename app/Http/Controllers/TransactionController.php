@@ -46,6 +46,19 @@ class TransactionController extends Controller
              return redirect()->route('status.konfirmasi')->with(['message_success' => 'Berhasil mengirimkan konfirmasi.']);
 
 	}
+	function cancel(Request $request){
+		$validator = Validator::make($request->all(),[
+                           'id_transaksi' =>'required|exists:tb_transaksi,id',
+                           'alasan' =>'required',
+                       ]);
+           if ($validator->fails()){
+                $error= $validator->errors()->first();
+                 return redirect()->back()->with(['message_fail' => $error])
+                                          ->withInput($request->all());
+            }
+            Transaction::where(['id_user' => Auth::user()->id,'id'=>$request->id_transaksi])->update(['is_canceled'=>true,'alasan_batal' => $request->alasan]);
+            return redirect()->route('status.gagal')->with(['message_success' => 'Berhasil membatalkan pesanan.']);
+	}
     function konfirmasi(){
     	$trans = Transaction::where(['id_user' => Auth::user()->id])->where('timeout','>',time())->where(['is_verify' => false])->where('is_canceled',false)->paginate(12);
 

@@ -1,4 +1,10 @@
 $(document).ready(function($) {
+	$("[show-sn]").click(function(){
+		$("#redeem-code").hide();
+		$("#redeem-code").html($(this).attr("sn-data"));
+		$("#redeem-code").fadeIn();
+		$(this).hide();
+	});
 	$("[add-cart]").click(function() {
 		$("#spinner").fadeIn();
 		var id=$(this).attr('data-id');

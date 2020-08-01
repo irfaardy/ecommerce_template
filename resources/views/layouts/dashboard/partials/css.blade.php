@@ -13,6 +13,7 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('assets/dashboard/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/font-awesome-free/css/font-awesome.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/mag/magnifier.css')}}">
   <link rel="stylesheet" href="{{asset('assets/pace-progress/themes/blue/pace-theme-flat-top.css')}}">
   <link rel="stylesheet" href="{{asset('assets/pwdstr/passtrength.css')}}">
   <script src="{{asset('assets/ckeditor/ckeditor.js')}}"></script>

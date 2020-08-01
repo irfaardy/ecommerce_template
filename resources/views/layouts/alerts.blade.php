@@ -1,9 +1,10 @@
   <script type="text/javascript"> 
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      timerProgressBar: true,
+      position: 'top',
       showConfirmButton: false,
-      timer: 10000
+      timer: 3000
     });
   </script>
   @if(Session::get('message_fail'))	

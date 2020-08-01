@@ -6,6 +6,7 @@
 <!-- AdminLTE -->
 <script src="{{asset('assets/dashboard/js/adminlte.min.js')}}"></script>
 <script src="{{asset('assets/pwdstr/jquery.passtrength.js')}}"></script>
+<script src="{{asset('assets/mag/Magnifier.js')}}"></script>
 <script src="{{asset('assets/lazy-load/jquery.lazyload-any.js')}}"></script>
 <script type="text/javascript">
  $(document).ready(function($) {

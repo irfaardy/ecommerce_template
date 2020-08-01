@@ -23,6 +23,11 @@
 						<th> Total Harga </th>
 						<th></th>
 						<tbody>
+							@if(count($trans) <= 0):
+								<tr>
+									<td colspan="5" class="table-info" align="center"> <b>Belum ada transaksi disini. Belanja dulu yuk!</b> </td>
+								</tr>
+							@endif
 							@foreach($trans as $t)
 							<tr>
 								<td>
@@ -37,8 +42,46 @@
 										@if(!empty($t->buktiTF))
 											<span class="badge badge-success"><i class="fas fa-spinner fa-spin"></i> Sedang diverifikasi</span>
 										@else
-									<a href="#konfirmasi-{{$t->id}}" class="btn btn-primary" data-toggle="modal" data-target="#kp-{{$t->id}}">Konfirmasi Pembayaran</a>
+									<a href="#konfirmasi-{{$t->id}}" class="btn btn-primary" data-toggle="modal" data-target="#kp-{{$t->id}}">Konfirmasi Pembayaran</a><br>
+									<a href="#" class="btn btn-light" data-toggle="modal" data-target="#batalkan-pesanan-{{$t->id}}">Batalkan Pesanan</a>
 
+								<div class="modal fade" id="batalkan-pesanan-{{$t->id}}" tabindex="-1" role="dialog" aria-labelledby="konfirmasi" aria-hidden="true">
+								  <div class="modal-dialog" role="document">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="exampleModalLabel">Batalkan pesanan?</h5>
+								        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								      <div class="modal-body">
+								      	<form action="{{route('konfirmasi.batal')}}" enctype="multipart/form-data" method="POST">
+										@csrf
+								      	<input type="hidden" name="id_transaksi" value="{{$t->id}}">
+								        	<label>Alasan pembatalan</label>
+								        <select name="alasan" class="form-control" required="">
+								        	<option value="">-Pilih-</option>
+								        	<option value="Ingin mengganti metode pembayaran.">Ingin mengganti metode pembayaran</option>
+								        	<option value="Ingin mengganti produk yang dibeli">Ingin mengganti produk yang dibeli</option>
+								        	<option value="Tidak tertarik dengan produk yang dibeli">Tidak tertarik dengan produk yang dibeli</option>
+								        	<option value="Tidak jadi membeli">Tidak jadi membeli</option>
+								        	<option value="Lainnya">Lainnya</option>
+								        </select>
+								        <hr>
+								        <div class="row">
+								        	<div class="col-md-6">
+								        		<button class="btn btn-danger btn-block">Ya</button>
+								        	</div>
+								        	<div class="col-md-6">
+								        		<button  type="button"  data-dismiss="modal" class="btn btn-light btn-block">Batalkan</button>
+								        	</div>
+								        </div>
+								    </form>
+								      </div>
+								     
+								    </div>
+								  </div>
+								</div>
 									{{-- MODAL --}}
 									<div class="modal fade" id="kp-{{$t->id}}" tabindex="-1" role="dialog" aria-labelledby="konfirmasi" aria-hidden="true">
 							  

@@ -21,4 +21,7 @@ class Transaction extends Model
     public function buktiTF(){
         return $this->hasOne('App\Models\BuktiTransfer','transaksi_id');
     }
+    public function redeem(){
+        return $this->hasOne('App\Models\Redeem','transaction_id','id');
+    }
 }
