@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2020 at 06:51 PM
+-- Generation Time: Aug 01, 2020 at 07:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -110,6 +110,32 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `redeem`
+--
+
+CREATE TABLE `redeem` (
+  `id` bigint(20) NOT NULL,
+  `transaction_id` bigint(20) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `serial` varchar(60) DEFAULT NULL,
+  `is_disabled` tinyint(1) NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `redeem`
+--
+
+INSERT INTO `redeem` (`id`, `transaction_id`, `user_id`, `serial`, `is_disabled`, `created_at`, `updated_at`) VALUES
+(1, 16, 1, 'nIs5-12Ii-IFZa-01iw', 0, '2020-07-31 18:07:49', '2020-07-31 18:07:49'),
+(2, 17, 1, 'fThG-uXNB-tRv1-fjqB', 0, '2020-07-31 19:04:56', '2020-07-31 19:04:56'),
+(3, 17, 1, 'Z0AH-CVOM-PKMH-CE3N', 0, '2020-07-31 20:24:13', '2020-07-31 20:24:13'),
+(4, 18, 1, '7FD4-SEIE-VPI3-C591', 0, '2020-07-31 20:45:02', '2020-07-31 20:45:02');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_bukti_transfer`
 --
 
@@ -130,7 +156,12 @@ CREATE TABLE `tb_bukti_transfer` (
 INSERT INTO `tb_bukti_transfer` (`id`, `transaksi_id`, `user_id`, `img_url_bukti`, `img_real_bukti`, `created_at`, `updated_at`) VALUES
 (2, 10, 1, '20200731_BUKTI-TF_1-10.jpg', '1596212000_BUKTI-TF_1-10.jpg', '2020-07-31 09:13:20', '2020-07-31 09:13:20'),
 (3, 12, 1, '20200731_BUKTI-TF_1-12.jpg', '20200731_BUKTI-TF_1-12.jpg', '2020-07-31 09:48:16', '2020-07-31 09:48:16'),
-(4, 11, 1, '20200731_BUKTI-TF_1-11.jpg', '20200731_BUKTI-TF_1-11.jpg', '2020-07-31 09:48:47', '2020-07-31 09:48:47');
+(4, 11, 1, '20200731_BUKTI-TF_1-11.jpg', '20200731_BUKTI-TF_1-11.jpg', '2020-07-31 09:48:47', '2020-07-31 09:48:47'),
+(5, 14, 1, '20200801_BUKTI-TF_1-14.jpg', '20200801_BUKTI-TF_1-14.jpg', '2020-07-31 17:23:58', '2020-07-31 17:23:58'),
+(6, 15, 1, '20200801_BUKTI-TF_1-15.jpg', '20200801_BUKTI-TF_1-15.jpg', '2020-07-31 17:28:37', '2020-07-31 17:28:37'),
+(7, 16, 1, '20200801_BUKTI-TF_1-16.jpg', '20200801_BUKTI-TF_1-16.jpg', '2020-07-31 18:08:02', '2020-07-31 18:08:02'),
+(8, 17, 1, '20200801_BUKTI-TF_1-17.jpg', '20200801_BUKTI-TF_1-17.jpg', '2020-07-31 19:09:42', '2020-07-31 19:09:42'),
+(9, 18, 1, '20200801_BUKTI-TF_1-18.jpeg', '20200801_BUKTI-TF_1-18.jpeg', '2020-07-31 20:44:34', '2020-07-31 20:44:34');
 
 -- --------------------------------------------------------
 
@@ -164,7 +195,7 @@ CREATE TABLE `tb_details_transaksi` (
   `transaksi_id` bigint(20) NOT NULL,
   `template_id` bigint(20) NOT NULL,
   `harga` double(12,2) NOT NULL,
-  `discount` float(3,2) NOT NULL,
+  `discount` float(12,2) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -174,17 +205,12 @@ CREATE TABLE `tb_details_transaksi` (
 --
 
 INSERT INTO `tb_details_transaksi` (`id`, `transaksi_id`, `template_id`, `harga`, `discount`, `created_at`, `updated_at`) VALUES
-(12, 7, 5, 170000.00, 9.99, '2020-07-30 06:42:38', '2020-07-30 06:42:38'),
-(13, 7, 7, 170000.00, 9.99, '2020-07-30 06:42:39', '2020-07-30 06:42:39'),
-(14, 8, 5, 110500.00, 9.99, '2020-07-30 06:52:05', '2020-07-30 06:52:05'),
-(15, 8, 7, 130900.00, 9.99, '2020-07-30 06:52:05', '2020-07-30 06:52:05'),
-(16, 9, 8, 50400.00, 9.99, '2020-07-30 07:21:24', '2020-07-30 07:21:24'),
-(17, 10, 5, 110500.00, 9.99, '2020-07-31 07:45:09', '2020-07-31 07:45:09'),
-(18, 11, 6, 70000.00, 0.00, '2020-07-31 09:00:06', '2020-07-31 09:00:06'),
-(19, 11, 7, 130900.00, 9.99, '2020-07-31 09:00:06', '2020-07-31 09:00:06'),
-(20, 11, 5, 110500.00, 9.99, '2020-07-31 09:00:06', '2020-07-31 09:00:06'),
-(21, 11, 8, 50400.00, 9.99, '2020-07-31 09:00:06', '2020-07-31 09:00:06'),
-(22, 12, 5, 110500.00, 9.99, '2020-07-31 09:48:07', '2020-07-31 09:48:07');
+(26, 16, 8, 50400.00, 60.00, '2020-07-31 18:07:49', '2020-07-31 18:07:49'),
+(27, 17, 5, 110500.00, 35.00, '2020-07-31 19:04:56', '2020-07-31 19:04:56'),
+(28, 18, 5, 110500.00, 35.00, '2020-07-31 20:43:50', '2020-07-31 20:43:50'),
+(29, 18, 8, 50400.00, 60.00, '2020-07-31 20:43:51', '2020-07-31 20:43:51'),
+(30, 19, 6, 70000.00, 0.00, '2020-07-31 21:33:11', '2020-07-31 21:33:11'),
+(31, 20, 5, 110500.00, 35.00, '2020-07-31 21:53:57', '2020-07-31 21:53:57');
 
 -- --------------------------------------------------------
 
@@ -350,6 +376,7 @@ CREATE TABLE `tb_transaksi` (
   `bank_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_verify` tinyint(1) NOT NULL,
   `timeout` bigint(20) NOT NULL,
+  `alasan_batal` varchar(120) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_canceled` tinyint(1) NOT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `updated_by` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -361,13 +388,12 @@ CREATE TABLE `tb_transaksi` (
 -- Dumping data for table `tb_transaksi`
 --
 
-INSERT INTO `tb_transaksi` (`id`, `invoice`, `id_user`, `link`, `total_harga`, `metode_pembayaran`, `bank_id`, `is_verify`, `timeout`, `is_canceled`, `deleted_at`, `updated_by`, `created_at`, `updated_at`) VALUES
-(7, 'INV/2020/07/DWAT', 1, '31180de1-ab76-49e7-9243-10ecec6cfa9a', 241400.00, 'TRANSFER', '1', 1, 1596202958, 0, NULL, '1', '2020-07-30 06:42:38', '2020-07-30 06:42:38'),
-(8, 'INV/2020/07/IMLL', 1, '79db8f5d-ea10-4c87-bb67-798d5dd5931b', 241400.00, 'TRANSFER', '1', 1, 1596203525, 0, NULL, '1', '2020-07-30 06:52:05', '2020-07-30 06:52:05'),
-(9, 'INV/2020/07/CDT6', 1, '8b40ae92-ed77-4d99-9c3a-9ea5cbd8babb', 50400.00, 'TRANSFER', '1', 0, 1596205282, 1, NULL, '1', '2020-07-30 07:21:23', '2020-07-30 07:21:23'),
-(10, 'INV/2020/07/PSY8', 1, '9c56578c-358f-4a66-ac79-2354d02b0def', 110500.00, 'TRANSFER', '1', 0, 1596293109, 0, NULL, '1', '2020-07-31 07:45:09', '2020-07-31 07:45:09'),
-(11, 'INV/2020/07/FFOQ', 1, '8ecad783-ad88-4eb7-b049-89ba0d072e03', 361800.00, 'TRANSFER', '2', 1, 1596297606, 0, NULL, '1', '2020-07-31 09:00:06', '2020-07-31 09:00:06'),
-(12, 'INV/2020/07/HYQJ', 1, '0abe700e-1986-441b-baec-abba9ccb2fa7', 110500.00, 'TRANSFER', '1', 0, 1596300486, 0, NULL, '1', '2020-07-31 09:48:07', '2020-07-31 09:48:07');
+INSERT INTO `tb_transaksi` (`id`, `invoice`, `id_user`, `link`, `total_harga`, `metode_pembayaran`, `bank_id`, `is_verify`, `timeout`, `alasan_batal`, `is_canceled`, `deleted_at`, `updated_by`, `created_at`, `updated_at`) VALUES
+(16, 'INV/2020/08/HULD', 1, 'a48b7da1-8a16-4d41-9287-268a542bce0e', 50400.00, 'TRANSFER', '3', 1, 1596330468, NULL, 0, NULL, '1', '2020-07-31 18:07:49', '2020-07-31 18:07:49'),
+(17, 'INV/2020/08/3Q1Y', 1, 'ee4117d8-c0d9-4ca6-b629-fdf82090e972', 110500.00, 'TRANSFER', '1', 1, 1596333896, NULL, 0, NULL, '1', '2020-07-31 19:04:56', '2020-07-31 20:24:13'),
+(18, 'INV/2020/08/IKI8', 1, '59f023c4-1402-4b13-8eda-ae67eb5f9dfa', 160900.00, 'TRANSFER', '1', 1, 1596339830, NULL, 0, NULL, '1', '2020-07-31 20:43:50', '2020-07-31 20:45:02'),
+(19, 'INV/2020/08/1NCZ', 1, 'ee99e107-1d8e-4e8e-abdf-a3efe2b239d7', 70000.00, 'TRANSFER', '1', 0, 1596342791, 'Ingin mengganti produk yang dibeli', 1, NULL, '1', '2020-07-31 21:33:11', '2020-07-31 21:53:24'),
+(20, 'INV/2020/08/H9ET', 1, 'c2765fe8-5487-4150-add0-3f8bc802e510', 110500.00, 'TRANSFER', '1', 0, 1596344036, 'Ingin mengganti metode pembayaran.', 1, NULL, '1', '2020-07-31 21:53:57', '2020-07-31 21:59:05');
 
 -- --------------------------------------------------------
 
@@ -452,6 +478,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `redeem`
+--
+ALTER TABLE `redeem`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tb_bukti_transfer`
@@ -553,10 +585,16 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
+-- AUTO_INCREMENT for table `redeem`
+--
+ALTER TABLE `redeem`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `tb_bukti_transfer`
 --
 ALTER TABLE `tb_bukti_transfer`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tb_data_diri`
@@ -568,7 +606,7 @@ ALTER TABLE `tb_data_diri`
 -- AUTO_INCREMENT for table `tb_details_transaksi`
 --
 ALTER TABLE `tb_details_transaksi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tb_redeem_code`
@@ -580,7 +618,7 @@ ALTER TABLE `tb_redeem_code`
 -- AUTO_INCREMENT for table `tb_shopping_cart`
 --
 ALTER TABLE `tb_shopping_cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `tb_templates`
@@ -610,7 +648,7 @@ ALTER TABLE `tb_template_theme_cat`
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `template_images`
