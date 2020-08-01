@@ -60,17 +60,17 @@ class TransactionController extends Controller
             return redirect()->route('status.gagal')->with(['message_success' => 'Berhasil membatalkan pesanan.']);
 	}
     function konfirmasi(){
-    	$trans = Transaction::where(['id_user' => Auth::user()->id])->where('timeout','>',time())->where(['is_verify' => false])->where('is_canceled',false)->paginate(12);
+    	$trans = Transaction::where(['id_user' => Auth::user()->id])->where('timeout','>',time())->where(['is_verify' => false])->where('is_canceled',false)->orderBy('created_at','DESC')->paginate(12);
 
     	return view('status.konfirmasi')->with(['title' => 'Menunggu Konfirmasi','trans' => $trans]);
     }
      function gagal(){
-    	$trans = Transaction::where(['id_user' => Auth::user()->id])->where('timeout','<',time())->where(['is_verify' => false])->orWhere('is_canceled',true)->paginate(12);
+    	$trans = Transaction::where(['id_user' => Auth::user()->id])->where('timeout','<',time())->where(['is_verify' => false])->orWhere('is_canceled',true)->orderBy('created_at','DESC')->paginate(12);
 
     	return view('status.konfirmasi')->with(['title' => 'Transaksi Gagal','trans' => $trans]);
     }
     function diterima(){
-    	$trans = Transaction::where(['id_user' => Auth::user()->id])->where(['is_verify' => true])->where('is_canceled',false)->paginate(12);
+    	$trans = Transaction::where(['id_user' => Auth::user()->id])->where(['is_verify' => true])->where('is_canceled',false)->orderBy('created_at','DESC')->paginate(12);
 
     	return view('status.konfirmasi')->with(['title' => 'Produk Diterima','trans' => $trans]);
     }

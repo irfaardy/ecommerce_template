@@ -18,8 +18,27 @@
 		<div class="card">
 			<div class="card-header"><b>{{$title}}</b></div>
 				<div class="card-body">
-					<h3> Total item : <b>{{count($trans->details)}} item(s)</b></h3>
-					<h3> Serial Number : <b><span id="redeem-code" ></span></b><a show-sn href="#" class="btn btn-primary btn-sm" sn-data="{{$trans->redeem->serial}}">Lihat SN</a></h3>
+					<div class="row">
+						<div class="col-md-4">
+					<table width="100%">
+						<tr>
+							<td>No.Invoice</td>
+							<td>:</td>
+							<td><b>{{$trans->invoice}}</b></td>
+						</tr>
+						<tr>
+							<td>Total item</td>
+							<td>:</td>
+							<td><b>{{count($trans->details)}}</b></td>
+						</tr><tr>
+							<td>Serial Number</td>
+							<td>:</td>
+							<td><b><span id="redeem-code" style="font-family: 'Lucida Console', Monaco, monospace;" ></span></b><a show-sn href="#" class="btn btn-primary btn-sm" sn-data="{{$trans->redeem->serial}}">Lihat SN</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+					
 					<table class="table ">
 						<thead>
 							<th>Product</th>
