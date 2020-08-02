@@ -2,7 +2,7 @@
                       <li class="nav-item active"><a href="#"  data-toggle="modal" data-target=".bd-example-modal-lg" class="nav-link text-uppercase font-weight-bold">CATEGORY</a></li>
                         <li class="nav-item"><a href="{{route('product.cat',['cat' => 7])}}" class="nav-link text-uppercase font-weight-bold">DEALS OF THE DAY</a></li>
                         <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">SERVICES</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">SEARCH</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold"  data-toggle="modal" data-target="#search-form">SEARCH</a></li>
                         <li class="nav-item"><a href="{{route('shoppingcart')}}" class="nav-link text-uppercase font-weight-bold"><i class="fa fa-shopping-cart"></i>@auth <span class='badge badge-warning' id='CartCount'>  {{TemplateHelper::cart()}} </span>@endauth</a></li>
                         {{-- <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact us</a></li> --}}
                        @guest
@@ -44,3 +44,32 @@
                             </li>
                         @endguest
                     </ul>
+
+                    <div class="modal fade" id="search-form" tabindex="-1" role="dialog" aria-labelledby="konfirmasi" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cari Template</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" enctype="multipart/form-data" method="GET">
+    
+        <input type="text" class="form-control" placeholder="Template Minimalis" required="" name="search">
+        </small>
+        <div class="row">
+          <div class="col-md-6">
+          </div>
+          <div class="col-md-6">
+            <hr>
+            <button class="btn btn-primary btn-block">Cari</button>
+          </div>
+        </div>
+    </form>
+      </div>
+     
+    </div>
+  </div>
+</div>
