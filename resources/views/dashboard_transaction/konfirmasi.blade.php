@@ -12,6 +12,8 @@
 <table class="table table-bordered table-striped">
 	<thead>
 		<th>Invoice</th>
+		<th>Nama Pembeli</th>
+		<th>email</th>
 		<th>Total</th>
 		<th>Jumlah</th>
 		<th>Dibeli pada</th>
@@ -21,7 +23,9 @@
 	@foreach($trans as $t)
 		<tr>
 			<td>{{$t->invoice}}</td>
-			<td>{{number_format($t->total_harga)}}</td>
+			<td>{{$t->user->name}}</td>
+			<td>{{$t->user->email}}</td>
+			<td>Rp.{{number_format($t->total_harga)}}</td>
 			<td>{{count($t->details)}}</td>
 			<td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($t->created_at))->diffForHumans()}}</td>
 			<td>

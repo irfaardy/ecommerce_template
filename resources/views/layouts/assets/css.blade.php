@@ -12,6 +12,7 @@
  <script src="{{asset('assets/sweetalert2/sweetalert2.min.js')}}"></script>
 <link rel="stylesheet" href="{{asset('assets/sweetalert2/sweetalert2.min.css')}}">
    <script src="{{asset('js/jquery.unveil.js')}}"></script>
+   <script src="{{asset('assets/lazyload/jquery.lazyload.min.js')}}"></script>
 <script type="text/javascript">
   $(document).ready(function() {
   $("img").unveil(100);

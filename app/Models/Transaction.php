@@ -24,4 +24,7 @@ class Transaction extends Model
     public function redeem(){
         return $this->hasOne('App\Models\Redeem','transaction_id','id');
     }
+     public function user(){
+        return $this->hasOne('App\User','id','id_user');
+    }
 }
